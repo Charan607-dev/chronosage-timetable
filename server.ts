@@ -12,6 +12,28 @@ const __dirname = process.cwd();
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Allow the GitHub Pages frontend to call the Render backend
+app.use((req, res, next) => {
+  res.header(
+    'Access-Control-Allow-Origin',
+    'https://charan607-dev.github.io'
+  );
+  res.header(
+    'Access-Control-Allow-Methods',
+    'GET, POST, PUT, DELETE, OPTIONS'
+  );
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Content-Type, Authorization'
+  );
+
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204);
+  }
+
+  next();
+});
+
 app.use(express.json({ limit: '10mb' }));
 
 // Persistence directory
