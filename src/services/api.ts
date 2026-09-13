@@ -4,56 +4,38 @@ import { getDefaultAppData } from '../utils/defaultData';
 const LOCAL_STORAGE_KEY = 'chronosage_app_data_v1';
 
 export async function loadAppData(): Promise<AppData> {
-  // First try server
-  try {
-    const res = await fetch('/api/storage');
-    if (res.ok) {
-      const serverData = await res.json();
-      if (serverData && serverData.timetable) {
-        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(serverData));
-        return serverData;
-      }
-    }
-  } catch (err) {
-    console.warn('Could not fetch data from server, trying local cache', err);
-  }
-
-  // Next try localStorage
   try {
     const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
+
     if (cached) {
-      const parsed = JSON.parse(cached);
-      // Sync to server silently in background
-      saveAppData(parsed).catch(() => {});
-      return parsed;
+      return JSON.parse(cached);
     }
   } catch (err) {
     console.error('Error reading localStorage', err);
   }
 
-  // Fallback to initial seed data
   const defaultData = getDefaultAppData();
-  saveAppData(defaultData).catch(() => {});
+
+  try {
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify(defaultData)
+    );
+  } catch (err) {
+    console.error('Failed to save default data', err);
+  }
+
   return defaultData;
 }
 
 export async function saveAppData(data: AppData): Promise<void> {
-  // Always save locally immediately for zero latency
   try {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data));
+    localStorage.setItem(
+      LOCAL_STORAGE_KEY,
+      JSON.stringify(data)
+    );
   } catch (err) {
     console.error('Failed to write to localStorage', err);
-  }
-
-  // Sync to backend file store
-  try {
-    await fetch('/api/storage', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(data)
-    });
-  } catch (err) {
-    console.warn('Failed to sync data to backend server', err);
   }
 }
 
