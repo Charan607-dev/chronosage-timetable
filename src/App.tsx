@@ -84,7 +84,7 @@ const AppContent: React.FC = () => {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 flex flex-col font-sans transition-colors duration-200">
       
       {/* Top Header */}
-      <Header onOpenMobileSidebar={() => setIsMobileSidebarOpen(true)} />
+      <Header onToggleMobileMenu={() => setIsMobileSidebarOpen(true)} />
 
       {/* Main App Layout */}
       <div className="flex-1 flex max-w-[1600px] w-full mx-auto">
