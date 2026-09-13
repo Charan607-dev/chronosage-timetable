@@ -15,6 +15,7 @@ import { GenerateDayModal } from './components/GenerateDayModal';
 import { RescheduleModal } from './components/RescheduleModal';
 import { AIChatDrawer } from './components/AIChatDrawer';
 import { TimetableItem } from './types';
+import { LoginPage } from './components/LoginPage';
 import { Sparkles, Bot } from 'lucide-react';
 
 const AppContent: React.FC = () => {
@@ -135,6 +136,19 @@ const AppContent: React.FC = () => {
 };
 
 export default function App() {
+  const [userName, setUserName] = useState<string | null>(() => {
+    return localStorage.getItem('chronosage_user_name');
+  });
+
+  const handleLogin = (name: string) => {
+    localStorage.setItem('chronosage_user_name', name);
+    setUserName(name);
+  };
+
+  if (!userName) {
+    return <LoginPage onLogin={handleLogin} />;
+  }
+
   return (
     <AppProvider>
       <AppContent />

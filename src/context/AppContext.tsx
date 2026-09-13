@@ -54,7 +54,22 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | null>(null);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [data, setData] = useState<AppData>(getDefaultAppData());
+  const [data, setData] = useState<AppData>(() => {
+  const defaultData = getDefaultAppData();
+  const savedName = localStorage.getItem('chronosage_user_name');
+
+  if (savedName) {
+    return {
+      ...defaultData,
+      settings: {
+        ...defaultData.settings,
+        name: savedName,
+      },
+    };
+  }
+
+  return defaultData;
+});
   const [activeTab, setActiveTab] = useState<string>('dashboard');
   const [currentTime, setCurrentTime] = useState<string>(getCurrentTimeString());
   const [currentDate, setCurrentDate] = useState<Date>(new Date());
@@ -66,11 +81,22 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 
   // Load saved data on boot
   useEffect(() => {
-    loadAppData().then((loaded) => {
-      setData(loaded);
-    });
-  }, []);
+  loadAppData().then((loaded) => {
+    const savedName = localStorage.getItem('chronosage_user_name');
 
+    if (savedName) {
+      setData({
+        ...loaded,
+        settings: {
+          ...loaded.settings,
+          name: savedName,
+        },
+      });
+    } else {
+      setData(loaded);
+    }
+  });
+}, []);
   // Save whenever data updates
   useEffect(() => {
     saveAppData(data);
@@ -311,11 +337,15 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   }, []);
 
   const updateSettings = useCallback((newSettings: Partial<UserSettings>) => {
-    setData(prev => ({
-      ...prev,
-      settings: { ...prev.settings, ...newSettings }
-    }));
-  }, []);
+  if (newSettings.name !== undefined) {
+    localStorage.setItem('chronosage_user_name', newSettings.name);
+  }
+
+  setData(prev => ({
+    ...prev,
+    settings: { ...prev.settings, ...newSettings }
+  }));
+}, []);
 
   const dismissNotification = useCallback((id: string) => {
     setNotifications(prev => prev.filter(n => n.id !== id));
