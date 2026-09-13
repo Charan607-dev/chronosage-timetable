@@ -3,6 +3,9 @@ import { getDefaultAppData } from '../utils/defaultData';
 
 const LOCAL_STORAGE_KEY = 'chronosage_app_data_v1';
 
+// Render backend URL
+const API_BASE_URL = 'https://chronosage-timetable.onrender.com';
+
 export async function loadAppData(): Promise<AppData> {
   try {
     const cached = localStorage.getItem(LOCAL_STORAGE_KEY);
@@ -46,12 +49,14 @@ export async function apiGenerateSchedule(params: {
   fixedEvents: any[];
   studentTargetHours: number;
 }): Promise<{ success: boolean; items: TimetableItem[]; note?: string }> {
-  const res = await fetch('/api/generate-schedule', {
+  const res = await fetch(`${API_BASE_URL}/api/generate-schedule`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params)
   });
+
   if (!res.ok) throw new Error('Failed to generate schedule with AI');
+
   return res.json();
 }
 
@@ -61,12 +66,14 @@ export async function apiReschedule(params: {
   currentTime: string;
   sleepTime: string;
 }): Promise<{ success: boolean; items: TimetableItem[]; explanation: string }> {
-  const res = await fetch('/api/reschedule', {
+  const res = await fetch(`${API_BASE_URL}/api/reschedule`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params)
   });
+
   if (!res.ok) throw new Error('Failed to reschedule with AI');
+
   return res.json();
 }
 
@@ -79,12 +86,14 @@ export async function apiAIChat(params: {
   settings: any;
   currentTime: string;
 }): Promise<{ reply: string }> {
-  const res = await fetch('/api/ai-chat', {
+  const res = await fetch(`${API_BASE_URL}/api/ai-chat`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params)
   });
+
   if (!res.ok) throw new Error('AI Chat response error');
+
   return res.json();
 }
 
@@ -94,12 +103,14 @@ export async function apiGenerateMotivation(context: any): Promise<{
   author: string;
   contextTag: string;
 }> {
-  const res = await fetch('/api/generate-motivation', {
+  const res = await fetch(`${API_BASE_URL}/api/generate-motivation`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ context })
   });
+
   if (!res.ok) throw new Error('Failed to generate motivation');
+
   return res.json();
 }
 
@@ -111,11 +122,13 @@ export async function apiGenerateStudyPlan(params: {
   availableHoursPerDay: number;
   topicsList?: string[];
 }): Promise<{ success: boolean; topics: StudyTopic[] }> {
-  const res = await fetch('/api/generate-study-plan', {
+  const res = await fetch(`${API_BASE_URL}/api/generate-study-plan`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(params)
   });
+
   if (!res.ok) throw new Error('Failed to generate study plan');
+
   return res.json();
 }
