@@ -1,0 +1,7 @@
+{
+  "name": "ChronoSage - AI Daily Timetable & Student Productivity Planner",
+  "description": "An intelligent daily timetable generator, smart rescheduler, study planner, habit tracker, and context-aware motivation engine for students.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

@@ -1,0 +1,382 @@
+{
+  "settings": {
+    "name": "Alex Chen",
+    "theme": "system",
+    "wakeUpTime": "07:00",
+    "sleepTime": "23:00",
+    "collegeHours": "09:00 - 15:30",
+    "dailyStudyTargetHours": 4.5,
+    "preferredBreakMinutes": 15,
+    "soundEnabled": true,
+    "remindersEnabled": true,
+    "reminderMinutesBefore": 15
+  },
+  "timetable": [
+    {
+      "id": "tt-1",
+      "startTime": "07:30",
+      "endTime": "08:15",
+      "activity": "Morning Routine & Healthy Breakfast",
+      "category": "personal",
+      "priority": "medium",
+      "completed": false,
+      "notes": "Hydrate with water and plan priorities for the day"
+    },
+    {
+      "id": "tt-2",
+      "startTime": "08:30",
+      "endTime": "09:00",
+      "activity": "Commute / Quick Flashcard Review",
+      "category": "study",
+      "priority": "low",
+      "completed": false,
+      "notes": "Review Algorithms terms"
+    },
+    {
+      "id": "tt-3",
+      "startTime": "09:00",
+      "endTime": "12:30",
+      "activity": "University Lectures & Lab Session",
+      "category": "lecture",
+      "priority": "high",
+      "isFixed": true,
+      "completed": false,
+      "notes": "Computer Systems and Database Engineering"
+    },
+    {
+      "id": "tt-4",
+      "startTime": "12:30",
+      "endTime": "13:30",
+      "activity": "Lunch & Campus Walk",
+      "category": "meal",
+      "priority": "medium",
+      "completed": false,
+      "notes": "Recharge and step away from screens"
+    },
+    {
+      "id": "tt-5",
+      "startTime": "13:30",
+      "endTime": "15:30",
+      "activity": "Afternoon Classes / Library Study",
+      "category": "lecture",
+      "priority": "high",
+      "isFixed": true,
+      "completed": false,
+      "notes": "Operating Systems seminar"
+    },
+    {
+      "id": "tt-6",
+      "startTime": "16:00",
+      "endTime": "17:30",
+      "activity": "Python & Backend Project Development",
+      "category": "project",
+      "priority": "high",
+      "completed": false,
+      "notes": "Build REST APIs and implement async workers"
+    },
+    {
+      "id": "tt-7",
+      "startTime": "17:30",
+      "endTime": "18:00",
+      "activity": "Evening Tea Break & Stretch",
+      "category": "break",
+      "priority": "low",
+      "completed": false
+    },
+    {
+      "id": "tt-8",
+      "startTime": "18:00",
+      "endTime": "19:30",
+      "activity": "DSA & LeetCode Problem Solving",
+      "category": "study",
+      "priority": "high",
+      "completed": false,
+      "notes": "Practice Trees and Dynamic Programming"
+    },
+    {
+      "id": "tt-9",
+      "startTime": "19:45",
+      "endTime": "20:45",
+      "activity": "Dinner & Relaxation",
+      "category": "meal",
+      "priority": "medium",
+      "completed": false
+    },
+    {
+      "id": "tt-10",
+      "startTime": "21:00",
+      "endTime": "22:00",
+      "activity": "Daily Review & Next Day AI Planning",
+      "category": "revision",
+      "priority": "medium",
+      "completed": false,
+      "notes": "Check off habits and organize tomorrow"
+    },
+    {
+      "id": "tt-11",
+      "startTime": "22:00",
+      "endTime": "22:45",
+      "activity": "Light Reading & Digital Detox",
+      "category": "personal",
+      "priority": "low",
+      "completed": false,
+      "notes": "Prepare for deep restful sleep"
+    }
+  ],
+  "habits": [
+    {
+      "id": "habit-1",
+      "title": "Python / Coding Practice",
+      "category": "study",
+      "targetDaysPerWeek": 6,
+      "history": {
+        "2026-09-13": false
+      },
+      "streak": 5,
+      "bestStreak": 14,
+      "color": "#3b82f6",
+      "icon": "code"
+    },
+    {
+      "id": "habit-2",
+      "title": "Read 20 Pages",
+      "category": "personal",
+      "targetDaysPerWeek": 7,
+      "history": {
+        "2026-09-13": true
+      },
+      "streak": 12,
+      "bestStreak": 21,
+      "color": "#10b981",
+      "icon": "book-open"
+    },
+    {
+      "id": "habit-3",
+      "title": "Daily Workout / 30m Cardio",
+      "category": "exercise",
+      "targetDaysPerWeek": 5,
+      "history": {
+        "2026-09-13": false
+      },
+      "streak": 3,
+      "bestStreak": 9,
+      "color": "#f97316",
+      "icon": "activity"
+    },
+    {
+      "id": "habit-4",
+      "title": "Evening Topic Revision",
+      "category": "revision",
+      "targetDaysPerWeek": 6,
+      "history": {
+        "2026-09-13": false
+      },
+      "streak": 7,
+      "bestStreak": 15,
+      "color": "#8b5cf6",
+      "icon": "repeat"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Submit Operating Systems Lab 4 Report",
+      "category": "study",
+      "priority": "high",
+      "completed": false,
+      "dueDate": "2026-09-13",
+      "estimatedMinutes": 45,
+      "notes": "Include memory paging diagrams",
+      "createdAt": "2026-09-13"
+    },
+    {
+      "id": "task-2",
+      "title": "Review Graph Algorithms (Dijkstra & BFS)",
+      "category": "study",
+      "priority": "high",
+      "completed": false,
+      "dueDate": "2026-09-13",
+      "estimatedMinutes": 60,
+      "notes": "Key focus on time complexity proofs",
+      "createdAt": "2026-09-13"
+    },
+    {
+      "id": "task-3",
+      "title": "Push Git commit for AI Timetable project",
+      "category": "project",
+      "priority": "medium",
+      "completed": true,
+      "estimatedMinutes": 30,
+      "createdAt": "2026-09-13"
+    },
+    {
+      "id": "task-4",
+      "title": "Print Exam Hall Ticket & Syllabus Checklist",
+      "category": "personal",
+      "priority": "low",
+      "completed": false,
+      "estimatedMinutes": 15,
+      "createdAt": "2026-09-13"
+    }
+  ],
+  "studyPlans": [
+    {
+      "id": "sp-1",
+      "subject": "Data Structures & Algorithms",
+      "examDate": "2026-09-24",
+      "difficulty": "hard",
+      "availableHoursPerDay": 2.5,
+      "totalChapters": 6,
+      "createdAt": "2026-09-13",
+      "notes": "Midterm Exam - Covers chapters 1 to 6",
+      "topics": [
+        {
+          "id": "topic-1",
+          "name": "Arrays & Dynamic Strings",
+          "estimatedHours": 2,
+          "completed": true,
+          "difficulty": "easy"
+        },
+        {
+          "id": "topic-2",
+          "name": "Linked Lists & Two-Pointer Patterns",
+          "estimatedHours": 3,
+          "completed": true,
+          "difficulty": "medium"
+        },
+        {
+          "id": "topic-3",
+          "name": "Binary Trees & Traversals",
+          "estimatedHours": 4,
+          "completed": false,
+          "difficulty": "medium"
+        },
+        {
+          "id": "topic-4",
+          "name": "Binary Search Trees & Heaps",
+          "estimatedHours": 4,
+          "completed": false,
+          "difficulty": "hard"
+        },
+        {
+          "id": "topic-5",
+          "name": "Graph Theory (BFS, DFS, Dijkstra)",
+          "estimatedHours": 5,
+          "completed": false,
+          "difficulty": "hard"
+        },
+        {
+          "id": "topic-6",
+          "name": "Dynamic Programming Fundamentals",
+          "estimatedHours": 6,
+          "completed": false,
+          "difficulty": "hard"
+        }
+      ]
+    },
+    {
+      "id": "sp-2",
+      "subject": "Database Management Systems",
+      "examDate": "2026-09-29",
+      "difficulty": "medium",
+      "availableHoursPerDay": 2,
+      "totalChapters": 4,
+      "createdAt": "2026-09-13",
+      "notes": "End-term presentation and written exam",
+      "topics": [
+        {
+          "id": "db-1",
+          "name": "Relational Model & Normalization (1NF to BCNF)",
+          "estimatedHours": 3,
+          "completed": true,
+          "difficulty": "medium"
+        },
+        {
+          "id": "db-2",
+          "name": "Advanced SQL Queries & Indexing",
+          "estimatedHours": 3,
+          "completed": false,
+          "difficulty": "medium"
+        },
+        {
+          "id": "db-3",
+          "name": "Transaction Management & ACID Properties",
+          "estimatedHours": 3,
+          "completed": false,
+          "difficulty": "hard"
+        },
+        {
+          "id": "db-4",
+          "name": "NoSQL vs Relational Trade-offs",
+          "estimatedHours": 2,
+          "completed": false,
+          "difficulty": "easy"
+        }
+      ]
+    }
+  ],
+  "motivationHistory": [
+    {
+      "id": "quote-1",
+      "quote": "Success doesn't come from what you do occasionally; it comes from what you do consistently. Every block on your schedule today is an investment in your future self.",
+      "author": "Marie Forleo",
+      "contextTag": "Consistency & Focus",
+      "date": "2026-09-13",
+      "isFavorite": true
+    },
+    {
+      "id": "quote-2",
+      "quote": "Small daily improvements over time lead to stunning results. Don't worry about being perfect; focus on showing up today.",
+      "author": "Robin Sharma",
+      "contextTag": "Starting Fresh",
+      "date": "2026-09-13",
+      "isFavorite": false
+    },
+    {
+      "id": "quote-3",
+      "quote": "The expert in anything was once a beginner. Keep solving problems one line of code at a time.",
+      "author": "Helen Hayes",
+      "contextTag": "Coding & Perseverance",
+      "date": "2026-09-13",
+      "isFavorite": true
+    }
+  ],
+  "productivityHistory": [
+    {
+      "date": "2026-09-08",
+      "completedCount": 8,
+      "totalCount": 10,
+      "studyHours": 4.2,
+      "habitsCompleted": 4
+    },
+    {
+      "date": "2026-09-09",
+      "completedCount": 9,
+      "totalCount": 11,
+      "studyHours": 5,
+      "habitsCompleted": 4
+    },
+    {
+      "date": "2026-09-10",
+      "completedCount": 7,
+      "totalCount": 10,
+      "studyHours": 3.8,
+      "habitsCompleted": 3
+    },
+    {
+      "date": "2026-09-11",
+      "completedCount": 10,
+      "totalCount": 11,
+      "studyHours": 5.5,
+      "habitsCompleted": 4
+    },
+    {
+      "date": "2026-09-12",
+      "completedCount": 6,
+      "totalCount": 9,
+      "studyHours": 3.5,
+      "habitsCompleted": 3
+    }
+  ],
+  "lastResetDate": "2026-09-13"
+}
